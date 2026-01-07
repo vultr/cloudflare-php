@@ -139,6 +139,7 @@ class WAFTest extends TestCase
         $this->assertEquals('f939de3be84e66e757adcdcb87908023', $waf->getBody()->result->id);
     }
 
+    #[\Override]
     public function getGroups()
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/listPackageGroups.json');
