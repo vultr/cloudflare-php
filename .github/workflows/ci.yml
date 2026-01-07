@@ -1,4 +1,4 @@
-name: Test
+name: Lint & Test
 
 on:
   push:
@@ -7,8 +7,7 @@ on:
     branches: [ '*' ]
 
 jobs:
-  build:
-
+  ci:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -35,5 +34,7 @@ jobs:
         args: --prefer-dist --no-progress --no-suggest --verbose
         php_version: ${{ matrix.php-versions }}
 
+    - name: Run lint
+      run: make lint
     - name: Run tests
       run: make test
