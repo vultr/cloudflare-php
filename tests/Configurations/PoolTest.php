@@ -4,15 +4,14 @@
  * User: HemeraOne
  * Date: 13/05/2019
  */
-
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\DoesNotPerformAssertions;
 use Cloudflare\API\Configurations\ConfigurationsException;
 use Cloudflare\API\Configurations\Pool;
 
 class PoolTest extends TestCase
 {
-    /**
-     * @dataProvider argumentsDataProvider
-     */
+    #[DataProvider('argumentsDataProvider')]
     public function testArguments($setFunction, $arguments, $getFunction, $invalid)
     {
         $pool = new Pool('bogus', []);
@@ -30,9 +29,7 @@ class PoolTest extends TestCase
         }
     }
 
-    /**
-     * @doesNotPerformAssertions
-     */
+    #[DoesNotPerformAssertions]
     public static function argumentsDataProvider()
     {
         return [
