@@ -2,6 +2,7 @@
 
 namespace Cloudflare\API\Endpoints;
 
+use stdClass;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Configurations\FirewallRuleOptions;
 
@@ -56,7 +57,7 @@ class Firewall implements API
         string $zoneID,
         int $page = 1,
         int $perPage = 50
-    ): \stdClass {
+    ): stdClass {
         $query = [
             'page' => $page,
             'per_page' => $perPage,
@@ -91,7 +92,7 @@ class Firewall implements API
         FirewallRuleOptions $options,
         ?string $description = null,
         ?int $priority = null
-    ): \stdClass {
+    ): stdClass {
         $rule = array_merge([
             'id' => $ruleID,
             'filter' => [

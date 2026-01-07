@@ -1,5 +1,6 @@
 <?php
 
+use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Endpoints\Accounts;
 
 /**
@@ -13,7 +14,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/listAccounts.json');
 
-        $mock = $this->createMock(\Cloudflare\API\Adapter\Adapter::class);
+        $mock = $this->createMock(Adapter::class);
         $mock->method('get')->willReturn($response);
 
         $mock->expects($this->once())
@@ -42,7 +43,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/createStandardAccount.json');
 
-        $mock = $this->createMock(\Cloudflare\API\Adapter\Adapter::class);
+        $mock = $this->createMock(Adapter::class);
         $mock->method('post')->willReturn($response);
 
         $mock->expects($this->once())
@@ -65,7 +66,7 @@ class AccountsTest extends TestCase
     {
         $response = $this->getPsr7JsonResponseForFixture('Endpoints/createEnterpriseAccount.json');
 
-        $mock = $this->createMock(\Cloudflare\API\Adapter\Adapter::class);
+        $mock = $this->createMock(Adapter::class);
         $mock->method('post')->willReturn($response);
 
         $mock->expects($this->once())

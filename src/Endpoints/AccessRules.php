@@ -2,6 +2,7 @@
 
 namespace Cloudflare\API\Endpoints;
 
+use stdClass;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Configurations\Configurations;
 use Cloudflare\API\Traits\BodyAccessorTrait;
@@ -28,7 +29,7 @@ class AccessRules implements API
      * @param string $direction
      * @param string $match
      * @param string $notes
-     * @return \stdClass
+     * @return stdClass
      */
     public function listRules(
         string $zoneID,
@@ -42,7 +43,7 @@ class AccessRules implements API
         string $direction = '',
         string $match = 'all',
         string $notes = ''
-    ): \stdClass {
+    ): stdClass {
         $query = [
             'page' => $page,
             'per_page' => $perPage,

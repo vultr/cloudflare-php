@@ -8,6 +8,7 @@
 
 namespace Cloudflare\API\Endpoints;
 
+use stdClass;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Traits\BodyAccessorTrait;
 
@@ -23,7 +24,7 @@ class ZoneLockdown implements API
         string $zoneID,
         int $page = 1,
         int $perPage = 20
-    ): \stdClass {
+    ): stdClass {
         $query = [
             'page' => $page,
             'per_page' => $perPage
@@ -66,7 +67,7 @@ class ZoneLockdown implements API
         return false;
     }
 
-    public function getLockdownDetails(string $zoneID, string $lockdownID): \stdClass
+    public function getLockdownDetails(string $zoneID, string $lockdownID): stdClass
     {
         $user = $this->adapter->get('zones/' . $zoneID . '/firewall/lockdowns/' . $lockdownID);
         $this->body = json_decode($user->getBody());

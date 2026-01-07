@@ -8,6 +8,7 @@
 
 namespace Cloudflare\API\Endpoints;
 
+use stdClass;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Traits\BodyAccessorTrait;
 
@@ -32,7 +33,7 @@ class CustomHostnames implements API
      * @param bool   $wildcard
      * @param string $bundleMethod
      * @param array $customSsl
-     * @return \stdClass
+     * @return stdClass
      */
     public function addHostname(
         string $zoneID,
@@ -44,7 +45,7 @@ class CustomHostnames implements API
         bool $wildcard = false,
         string $bundleMethod = '',
         array $customSsl = []
-    ): \stdClass {
+    ): stdClass {
         $options = [
             'hostname' => $hostname,
             'ssl' => [
@@ -85,7 +86,7 @@ class CustomHostnames implements API
      * @param string $order
      * @param string $direction
      * @param int $ssl
-     * @return \stdClass
+     * @return stdClass
      */
     public function listHostnames(
         string $zoneID,
@@ -96,7 +97,7 @@ class CustomHostnames implements API
         string $order = '',
         string $direction = '',
         int $ssl = 0
-    ): \stdClass {
+    ): stdClass {
         $query = [
             'page' => $page,
             'per_page' => $perPage,
@@ -152,7 +153,7 @@ class CustomHostnames implements API
      * @param bool|null $wildcard
      * @param string    $bundleMethod
      * @param array    $customSsl
-     * @return \stdClass
+     * @return stdClass
      */
     public function updateHostname(
         string $zoneID,
@@ -164,7 +165,7 @@ class CustomHostnames implements API
         ?bool $wildcard = null,
         string $bundleMethod = '',
         array $customSsl = []
-    ): \stdClass {
+    ): stdClass {
         $query = [];
         $options = [];
 
@@ -214,9 +215,9 @@ class CustomHostnames implements API
     /**
      * @param string $zoneID
      * @param string $hostnameID
-     * @return \stdClass
+     * @return stdClass
      */
-    public function deleteHostname(string $zoneID, string $hostnameID): \stdClass
+    public function deleteHostname(string $zoneID, string $hostnameID): stdClass
     {
         $zone = $this->adapter->delete('zones/'.$zoneID.'/custom_hostnames/'.$hostnameID);
         $this->body = json_decode($zone->getBody());
@@ -225,9 +226,9 @@ class CustomHostnames implements API
 
     /**
      * @param string $zoneID
-     * @return \stdClass
+     * @return stdClass
      */
-    public function getFallbackOrigin(string $zoneID): \stdClass
+    public function getFallbackOrigin(string $zoneID): stdClass
     {
         $zone = $this->adapter->get('zones/'.$zoneID.'/custom_hostnames/fallback_origin');
         $this->body = json_decode($zone->getBody());

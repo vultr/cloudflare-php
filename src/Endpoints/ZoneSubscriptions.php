@@ -14,7 +14,7 @@ class ZoneSubscriptions implements API
     {
     }
 
-    public function listZoneSubscriptions(string $zoneId): \stdClass
+    public function listZoneSubscriptions(string $zoneId): stdClass
     {
         $user = $this->adapter->get('zones/' . $zoneId . '/subscriptions');
         $this->body = json_decode($user->getBody());

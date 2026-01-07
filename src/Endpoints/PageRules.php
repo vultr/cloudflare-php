@@ -8,6 +8,7 @@
 
 namespace Cloudflare\API\Endpoints;
 
+use stdClass;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Configurations\PageRulesActions;
 use Cloudflare\API\Configurations\PageRulesTargets;
@@ -99,7 +100,7 @@ class PageRules implements API
         return $this->body->result;
     }
 
-    public function getPageRuleDetails(string $zoneID, string $ruleID): \stdClass
+    public function getPageRuleDetails(string $zoneID, string $ruleID): stdClass
     {
         $user = $this->adapter->get('zones/' . $zoneID . '/pagerules/' . $ruleID);
         $this->body = json_decode($user->getBody());

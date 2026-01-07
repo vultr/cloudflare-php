@@ -7,6 +7,7 @@
 
 namespace Cloudflare\API\Endpoints;
 
+use stdClass;
 use Cloudflare\API\Adapter\Adapter;
 use Cloudflare\API\Traits\BodyAccessorTrait;
 
@@ -18,7 +19,7 @@ class Accounts implements API
     {
     }
 
-    public function addAccount(string $name, string $type = 'standard'): \stdClass
+    public function addAccount(string $name, string $type = 'standard'): stdClass
     {
         $options = [
             'name' => $name,
@@ -35,7 +36,7 @@ class Accounts implements API
         int $page = 1,
         int $perPage = 20,
         string $direction = ''
-    ): \stdClass {
+    ): stdClass {
         $query = [
             'page' => $page,
             'per_page' => $perPage
@@ -60,7 +61,7 @@ class Accounts implements API
         return $this->body->result;
     }
 
-    public function getDomainDetails(string $accountID, string $domainName): \stdClass
+    public function getDomainDetails(string $accountID, string $domainName): stdClass
     {
         $response = $this->adapter->get('accounts/' . $accountID . '/registrar/domains/' . $domainName);
 
@@ -69,14 +70,14 @@ class Accounts implements API
         return $this->body->result;
     }
 
-    public function lockDomain(string $accountID, string $domainName): \stdClass
+    public function lockDomain(string $accountID, string $domainName): stdClass
     {
         $response = $this->adapter->put('accounts/' . $accountID . '/registrar/domains/' . $domainName, ['locked' => true]);
         $this->body = json_decode($response->getBody());
         return $this->body;
     }
 
-    public function unlockDomain(string $accountID, string $domainName): \stdClass
+    public function unlockDomain(string $accountID, string $domainName): stdClass
     {
         $response = $this->adapter->put('accounts/' . $accountID . '/registrar/domains/' . $domainName, ['locked' => false]);
         $this->body = json_decode($response->getBody());
