@@ -40,8 +40,8 @@ class UARules implements API
         string $zoneID,
         string $mode,
         Configurations $configuration,
-        string $ruleID = null,
-        string $description = null
+        ?string $ruleID = null,
+        ?string $description = null
     ): bool {
         $options = [
             'mode' => $mode,
@@ -79,7 +79,7 @@ class UARules implements API
         string $ruleID,
         string $mode,
         \Cloudflare\API\Configurations\UARules $configuration,
-        string $description = null
+        ?string $description = null
     ): bool {
         $options = [
             'mode' => $mode,

@@ -36,7 +36,7 @@ class PageRules implements API
         PageRulesTargets $target,
         PageRulesActions $actions,
         bool $active = true,
-        int $priority = null
+        ?int $priority = null
     ): bool {
         $options = [
             'targets' => $target->getArray(),
@@ -65,10 +65,10 @@ class PageRules implements API
 
     public function listPageRules(
         string $zoneID,
-        string $status = null,
-        string $order = null,
-        string $direction = null,
-        string $match = null
+        ?string $status = null,
+        ?string $order = null,
+        ?string $direction = null,
+        ?string $match = null
     ): array {
         if ($status != null && !in_array($status, ['active', 'disabled'])) {
             throw new EndpointException('Page Rules can only be listed by status of active or disabled.');
@@ -111,8 +111,8 @@ class PageRules implements API
         string $ruleID,
         PageRulesTargets $target,
         PageRulesActions $actions,
-        bool $active = null,
-        int $priority = null
+        ?bool $active = null,
+        ?int $priority = null
     ): bool {
         $options = [];
         $options['targets'] = $target->getArray();
@@ -140,10 +140,10 @@ class PageRules implements API
     public function updatePageRule(
         string $zoneID,
         string $ruleID,
-        PageRulesTargets $target = null,
-        PageRulesActions $actions = null,
-        bool $active = null,
-        int $priority = null
+        ?PageRulesTargets $target = null,
+        ?PageRulesActions $actions = null,
+        ?bool $active = null,
+        ?int $priority = null
     ): bool {
         $options = [];
 

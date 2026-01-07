@@ -31,8 +31,8 @@ class Firewall implements API
         string $zoneID,
         string $expression,
         FirewallRuleOptions $options,
-        string $description = null,
-        int $priority = null
+        ?string $description = null,
+        ?int $priority = null
     ): bool {
         $rule = array_merge([
             'filter' => [
@@ -89,8 +89,8 @@ class Firewall implements API
         string $filterID,
         string $expression,
         FirewallRuleOptions $options,
-        string $description = null,
-        int $priority = null
+        ?string $description = null,
+        ?int $priority = null
     ): \stdClass {
         $rule = array_merge([
             'id' => $ruleID,

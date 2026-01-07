@@ -87,7 +87,7 @@ class AccessRules implements API
         string $zoneID,
         string $mode,
         Configurations $configuration,
-        string $notes = null
+        ?string $notes = null
     ): bool {
         $options = [
             'mode' => $mode,
@@ -113,7 +113,7 @@ class AccessRules implements API
         string $zoneID,
         string $ruleID,
         string $mode,
-        string $notes = null
+        ?string $notes = null
     ): bool {
         $options = [
             'mode' => $mode
