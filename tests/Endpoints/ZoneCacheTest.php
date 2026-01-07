@@ -93,40 +93,40 @@ class ZoneCacheTest extends TestCase
 
         $mock->expects($matcher)
             ->method('post')->willReturnCallback(function (...$parameters) use ($matcher, $cacheResp) {
-            if ($matcher->getInvocationCount() === 1) {
-                $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/first/purge_cache', $parameters[0]);
-                $this->assertEquals([
-                    'files' => [
-                        'https://example.com/file.jpg',
-                    ]
-                ], $parameters[1]);
-            }
-            if ($matcher->getInvocationCount() === 2) {
-                $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/second/purge_cache', $parameters[0]);
-                $this->assertEquals([
-                    'files' => [
-                        'https://example.com/file.jpg',
-                    ]
-                ], $parameters[1]);
-            }
-            if ($matcher->getInvocationCount() === 3) {
-                $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/third/purge_cache', $parameters[0]);
-                $this->assertEquals([
-                    'files' => [
-                        'https://example.com/file.jpg',
-                    ]
-                ], $parameters[1]);
-            }
-            if ($matcher->getInvocationCount() === 4) {
-                $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/purge_cache', $parameters[0]);
-                $this->assertEquals([
-                    'files' => [
-                        'https://example.com/file.jpg',
-                    ]
-                ], $parameters[1]);
-            }
-            return $cacheResp;
-        });
+                if ($matcher->getInvocationCount() === 1) {
+                    $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/first/purge_cache', $parameters[0]);
+                    $this->assertEquals([
+                        'files' => [
+                            'https://example.com/file.jpg',
+                        ]
+                    ], $parameters[1]);
+                }
+                if ($matcher->getInvocationCount() === 2) {
+                    $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/second/purge_cache', $parameters[0]);
+                    $this->assertEquals([
+                        'files' => [
+                            'https://example.com/file.jpg',
+                        ]
+                    ], $parameters[1]);
+                }
+                if ($matcher->getInvocationCount() === 3) {
+                    $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/third/purge_cache', $parameters[0]);
+                    $this->assertEquals([
+                        'files' => [
+                            'https://example.com/file.jpg',
+                        ]
+                    ], $parameters[1]);
+                }
+                if ($matcher->getInvocationCount() === 4) {
+                    $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/purge_cache', $parameters[0]);
+                    $this->assertEquals([
+                        'files' => [
+                            'https://example.com/file.jpg',
+                        ]
+                    ], $parameters[1]);
+                }
+                return $cacheResp;
+            });
 
         $zones = new \Cloudflare\API\Endpoints\Zones($mock);
         $result = $zones->cachePurge('c2547eb745079dac9320b638f5e225cf483cc5cfdda41', [
@@ -153,24 +153,24 @@ class ZoneCacheTest extends TestCase
 
         $mock->expects($matcher)
             ->method('post')->willReturnCallback(function (...$parameters) use ($matcher, $cacheResp) {
-            if ($matcher->getInvocationCount() === 1) {
-                $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/first/purge_cache', $parameters[0]);
-                $this->assertEquals(['purge_everything' => true], $parameters[1]);
-            }
-            if ($matcher->getInvocationCount() === 2) {
-                $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/second/purge_cache', $parameters[0]);
-                $this->assertEquals(['purge_everything' => true], $parameters[1]);
-            }
-            if ($matcher->getInvocationCount() === 3) {
-                $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/third/purge_cache', $parameters[0]);
-                $this->assertEquals(['purge_everything' => true], $parameters[1]);
-            }
-            if ($matcher->getInvocationCount() === 4) {
-                $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/purge_cache', $parameters[0]);
-                $this->assertEquals(['purge_everything' => true], $parameters[1]);
-            }
-            return $cacheResp;
-        });
+                if ($matcher->getInvocationCount() === 1) {
+                    $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/first/purge_cache', $parameters[0]);
+                    $this->assertEquals(['purge_everything' => true], $parameters[1]);
+                }
+                if ($matcher->getInvocationCount() === 2) {
+                    $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/second/purge_cache', $parameters[0]);
+                    $this->assertEquals(['purge_everything' => true], $parameters[1]);
+                }
+                if ($matcher->getInvocationCount() === 3) {
+                    $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/third/purge_cache', $parameters[0]);
+                    $this->assertEquals(['purge_everything' => true], $parameters[1]);
+                }
+                if ($matcher->getInvocationCount() === 4) {
+                    $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/purge_cache', $parameters[0]);
+                    $this->assertEquals(['purge_everything' => true], $parameters[1]);
+                }
+                return $cacheResp;
+            });
 
         $zones = new \Cloudflare\API\Endpoints\Zones($mock);
         $result = $zones->cachePurgeEverything('c2547eb745079dac9320b638f5e225cf483cc5cfdda41', true);
