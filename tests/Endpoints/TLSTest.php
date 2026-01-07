@@ -43,7 +43,7 @@ class TLSTest extends TestCase
             );
 
         $tlsMock = new \Cloudflare\API\Endpoints\TLS($mock);
-        $result = $tlsMock->enableTLS13('c2547eb745079dac9320b638f5e225cf483cc5cfdda41', true);
+        $result = $tlsMock->enableTLS13('c2547eb745079dac9320b638f5e225cf483cc5cfdda41');
 
         $this->assertTrue($result);
     }
@@ -63,7 +63,7 @@ class TLSTest extends TestCase
             );
 
         $tlsMock = new \Cloudflare\API\Endpoints\TLS($mock);
-        $result = $tlsMock->disableTLS13('c2547eb745079dac9320b638f5e225cf483cc5cfdda41', true);
+        $result = $tlsMock->disableTLS13('c2547eb745079dac9320b638f5e225cf483cc5cfdda41');
 
         $this->assertTrue($result);
     }

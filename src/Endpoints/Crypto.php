@@ -43,10 +43,7 @@ class Crypto implements API
             'zones/' . $zoneID . '/settings/opportunistic_onion'
         );
         $body = json_decode($return->getBody());
-        if (isset($body->result)) {
-            return $body->result;
-        }
-        return false;
+        return $body->result ?? false;
     }
 
     /**

@@ -68,10 +68,7 @@ class SSL implements API
             'zones/' . $zoneID . '/settings/always_use_https'
         );
         $body = json_decode($return->getBody());
-        if (isset($body->result)) {
-            return $body->result;
-        }
-        return false;
+        return $body->result ?? false;
     }
 
     /**
@@ -86,10 +83,7 @@ class SSL implements API
             'zones/' . $zoneID . '/settings/automatic_https_rewrites'
         );
         $body = json_decode($return->getBody());
-        if (isset($body->result)) {
-            return $body->result;
-        }
-        return false;
+        return $body->result ?? false;
     }
 
     /**

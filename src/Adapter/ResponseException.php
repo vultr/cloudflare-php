@@ -28,7 +28,7 @@ class ResponseException extends \Exception
         $contentType = $response->getHeaderLine('Content-Type');
 
         // Attempt to derive detailed error from standard JSON response.
-        if (strpos($contentType, 'application/json') !== false) {
+        if (str_contains($contentType, 'application/json')) {
             $json = json_decode($response->getBody());
             if (json_last_error() !== JSON_ERROR_NONE) {
                 return new ResponseException($err->getMessage(), 0, new JSONException(json_last_error_msg(), 0, $err));
