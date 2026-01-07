@@ -12,7 +12,7 @@ use Cloudflare\API\Adapter\Adapter;
 
 class TLS implements API
 {
-    public function __construct(private Adapter $adapter)
+    public function __construct(private readonly Adapter $adapter)
     {
     }
 

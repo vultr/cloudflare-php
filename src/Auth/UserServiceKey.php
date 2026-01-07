@@ -9,7 +9,7 @@ namespace Cloudflare\API\Auth;
 
 class UserServiceKey implements Auth
 {
-    public function __construct(private string $userServiceKey)
+    public function __construct(private readonly string $userServiceKey)
     {
     }
 

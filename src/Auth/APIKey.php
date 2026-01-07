@@ -9,7 +9,7 @@ namespace Cloudflare\API\Auth;
 
 class APIKey implements Auth
 {
-    public function __construct(private string $email, private string $apiKey)
+    public function __construct(private readonly string $email, private readonly string $apiKey)
     {
     }
 

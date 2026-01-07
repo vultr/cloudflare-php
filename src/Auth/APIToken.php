@@ -9,7 +9,7 @@ namespace Cloudflare\API\Auth;
 
 class APIToken implements Auth
 {
-    public function __construct(private string $apiToken)
+    public function __construct(private readonly string $apiToken)
     {
     }
 
