@@ -1,6 +1,6 @@
 {
-  "name": "cloudflare/sdk",
-  "description": "PHP binding for v4 of the Cloudflare Client API.",
+  "name": "vultr/cloudflare-sdk",
+  "description": "Vultr fork of PHP binding for v4 of the Cloudflare Client API.",
   "type": "library",
   "require": {
     "guzzlehttp/guzzle": "^7.0.1",
@@ -19,6 +19,10 @@
     {
       "name": "Junade Ali",
       "email": "junade@cloudflare.com"
+    },
+    {
+      "name": "Chris Jones",
+      "email": "cjones@vultr.com"
     }
   ],
   "autoload": {
