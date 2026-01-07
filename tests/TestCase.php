@@ -1,7 +1,7 @@
 <?php
+use GuzzleHttp\Psr7\Utils;
 use GuzzleHttp\Psr7\Stream;
 use GuzzleHttp\Psr7\Response;
-use function GuzzleHttp\Psr7\stream_for;
 use GuzzleHttp\Psr7;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
@@ -23,7 +23,7 @@ abstract class TestCase extends BaseTestCase
 
         $this->assertFileExists($path);
 
-        $stream = stream_for(file_get_contents($path));
+        $stream = (new Utils)::streamFor(file_get_contents($path));
 
         $this->assertInstanceOf(Stream::class, $stream);
 

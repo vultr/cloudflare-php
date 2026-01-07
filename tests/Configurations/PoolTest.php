@@ -33,7 +33,7 @@ class PoolTest extends TestCase
     /**
      * @doesNotPerformAssertions
      */
-    public function argumentsDataProvider()
+    public static function argumentsDataProvider()
     {
         return [
             'origins arguments valid' => [
