@@ -1,4 +1,4 @@
-# Cloudflare SDK (v4 API Binding for PHP 7)
+# Cloudflare SDK (v4 API Binding for PHP 8)
 
 [![Build Status](https://travis-ci.org/cloudflare/cloudflare-php.svg?branch=master)](https://travis-ci.org/cloudflare/cloudflare-php)
 
