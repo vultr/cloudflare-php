@@ -96,7 +96,7 @@ class ZoneCacheTest extends TestCase
 
         $mock->expects($matcher)
             ->method('post')->willReturnCallback(function (...$parameters) use ($matcher, $cacheResp) {
-                if ($matcher->getInvocationCount() === 1) {
+                if ($matcher->numberOfInvocations() === 1) {
                     $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/first/purge_cache', $parameters[0]);
                     $this->assertEquals([
                         'files' => [
@@ -104,7 +104,7 @@ class ZoneCacheTest extends TestCase
                         ]
                     ], $parameters[1]);
                 }
-                if ($matcher->getInvocationCount() === 2) {
+                if ($matcher->numberOfInvocations() === 2) {
                     $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/second/purge_cache', $parameters[0]);
                     $this->assertEquals([
                         'files' => [
@@ -112,7 +112,7 @@ class ZoneCacheTest extends TestCase
                         ]
                     ], $parameters[1]);
                 }
-                if ($matcher->getInvocationCount() === 3) {
+                if ($matcher->numberOfInvocations() === 3) {
                     $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/third/purge_cache', $parameters[0]);
                     $this->assertEquals([
                         'files' => [
@@ -120,7 +120,7 @@ class ZoneCacheTest extends TestCase
                         ]
                     ], $parameters[1]);
                 }
-                if ($matcher->getInvocationCount() === 4) {
+                if ($matcher->numberOfInvocations() === 4) {
                     $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/purge_cache', $parameters[0]);
                     $this->assertEquals([
                         'files' => [
@@ -156,19 +156,19 @@ class ZoneCacheTest extends TestCase
 
         $mock->expects($matcher)
             ->method('post')->willReturnCallback(function (...$parameters) use ($matcher, $cacheResp) {
-                if ($matcher->getInvocationCount() === 1) {
+                if ($matcher->numberOfInvocations() === 1) {
                     $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/first/purge_cache', $parameters[0]);
                     $this->assertEquals(['purge_everything' => true], $parameters[1]);
                 }
-                if ($matcher->getInvocationCount() === 2) {
+                if ($matcher->numberOfInvocations() === 2) {
                     $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/second/purge_cache', $parameters[0]);
                     $this->assertEquals(['purge_everything' => true], $parameters[1]);
                 }
-                if ($matcher->getInvocationCount() === 3) {
+                if ($matcher->numberOfInvocations() === 3) {
                     $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/environments/third/purge_cache', $parameters[0]);
                     $this->assertEquals(['purge_everything' => true], $parameters[1]);
                 }
-                if ($matcher->getInvocationCount() === 4) {
+                if ($matcher->numberOfInvocations() === 4) {
                     $this->assertEquals('zones/c2547eb745079dac9320b638f5e225cf483cc5cfdda41/purge_cache', $parameters[0]);
                     $this->assertEquals(['purge_everything' => true], $parameters[1]);
                 }

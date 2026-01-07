@@ -18,6 +18,7 @@ return RectorConfig::configure()
 		PHPUnitSetList::PHPUNIT_70,
 		PHPUnitSetList::PHPUNIT_80,
 		PHPUnitSetList::PHPUNIT_90,
+		PHPUnitSetList::PHPUNIT_100,
 	])
 	->withPhpSets(php84: true)
 	->withImportNames(removeUnusedImports: true)
