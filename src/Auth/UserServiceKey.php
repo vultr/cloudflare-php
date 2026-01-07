@@ -9,11 +9,8 @@ namespace Cloudflare\API\Auth;
 
 class UserServiceKey implements Auth
 {
-    private $userServiceKey;
-
-    public function __construct(string $userServiceKey)
+    public function __construct(private string $userServiceKey)
     {
-        $this->userServiceKey = $userServiceKey;
     }
 
     public function getHeaders(): array

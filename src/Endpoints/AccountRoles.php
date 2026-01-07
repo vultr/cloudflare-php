@@ -10,14 +10,8 @@ class AccountRoles implements API
 {
     use BodyAccessorTrait;
 
-    /**
-     * @var Adapter
-     */
-    private $adapter;
-
-    public function __construct(Adapter $adapter)
+    public function __construct(private Adapter $adapter)
     {
-        $this->adapter = $adapter;
     }
 
     public function listAccountRoles(string $accountId): stdClass

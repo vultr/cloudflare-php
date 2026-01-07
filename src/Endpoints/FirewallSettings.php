@@ -6,11 +6,8 @@ use Cloudflare\API\Adapter\Adapter;
 
 class FirewallSettings implements API
 {
-    private $adapter;
-
-    public function __construct(Adapter $adapter)
+    public function __construct(private Adapter $adapter)
     {
-        $this->adapter = $adapter;
     }
 
     /**

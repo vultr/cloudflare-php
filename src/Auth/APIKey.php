@@ -9,13 +9,8 @@ namespace Cloudflare\API\Auth;
 
 class APIKey implements Auth
 {
-    private $email;
-    private $apiKey;
-
-    public function __construct(string $email, string $apiKey)
+    public function __construct(private string $email, private string $apiKey)
     {
-        $this->email  = $email;
-        $this->apiKey = $apiKey;
     }
 
     public function getHeaders(): array

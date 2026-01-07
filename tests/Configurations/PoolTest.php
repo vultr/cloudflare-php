@@ -20,7 +20,7 @@ class PoolTest extends TestCase
             if ($invalid) {
                 try {
                     $pool->{$setFunction}($argument);
-                } catch (ConfigurationsException $e) {
+                } catch (ConfigurationsException) {
                     $this->assertNotEquals($argument, $pool->{$getFunction}());
                 }
             } elseif ($invalid === false) {

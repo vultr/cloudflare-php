@@ -9,11 +9,8 @@ namespace Cloudflare\API\Auth;
 
 class APIToken implements Auth
 {
-    private $apiToken;
-
-    public function __construct(string $apiToken)
+    public function __construct(private string $apiToken)
     {
-        $this->apiToken = $apiToken;
     }
 
     public function getHeaders(): array

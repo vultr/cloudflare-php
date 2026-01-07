@@ -18,5 +18,5 @@ return RectorConfig::configure()
 		PHPUnitSetList::PHPUNIT_70,
 		PHPUnitSetList::PHPUNIT_80,
 	])
-	->withPhpSets(php74: true)
- 	;
+	->withPhpSets(php80: true)
+	;

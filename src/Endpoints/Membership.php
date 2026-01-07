@@ -11,11 +11,8 @@ class Membership implements API
 {
     use BodyAccessorTrait;
 
-    private $adapter;
-
-    public function __construct(Adapter $adapter)
+    public function __construct(private Adapter $adapter)
     {
-        $this->adapter = $adapter;
     }
 
 
